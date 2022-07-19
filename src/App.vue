@@ -3,7 +3,7 @@
         <div class="app-inner">
             <h1>{{ msg }}</h1>
             <div class="loader" v-if="!init">
-                <img src="/src/assets/images/bitcoin.svg" alt="bitcoin">
+                <img :src="loaderImage" alt="bitcoin">
             </div>
 
             <transition name="fade">
@@ -25,7 +25,7 @@
                     <span class="max-range" v-if="!errored">(Max Date Range: 200 Days)</span>
 
                     <div style="position: absolute;" class="loader loader-chart" v-if="chartLoad">
-                        <img src="/src/assets/images/bitcoin.svg" alt="bitcoin">
+                        <img :src="loaderImage" alt="bitcoin">
                     </div>
                     <div class="chart-wrapper" v-if="!errored">
                         <!-- CHART -->
@@ -35,7 +35,7 @@
             </transition>
             <transition name="fade">
                 <div v-if="errored">
-                    <p class="error-message"><strong>Error:</strong> Sorry, there was a problem retrieving this information, please contatct an administrator.</p>
+                    <p class="error-message"><strong>Error:</strong> Sorry, there was a problem retrieving this information, please contact an administrator.</p>
                 </div>
             </transition>
         </div>
@@ -60,6 +60,7 @@ export default {
             msg: 'bitcoin Analyzer',
             init: null,
             chartLoad: false,
+            loaderImage: require('./assets/images/bitcoin.svg'),
             width: document.documentElement.clientWidth,
             height: document.documentElement.clientHeight,
             from: moment().subtract(1, 'days').toDate(),
