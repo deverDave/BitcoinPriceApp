@@ -6793,7 +6793,7 @@ var axios = __webpack_require__(162).default;
     },
     data: function data() {
         return {
-            msg: 'bitcoin Analyzer',
+            msg: 'bitcoin Price Analyzer',
             init: null,
             chartLoad: false,
             loaderImage: __webpack_require__(185),
@@ -6885,9 +6885,7 @@ var axios = __webpack_require__(162).default;
             var fromDate = __WEBPACK_IMPORTED_MODULE_0_moment___default()(String(this.from)).format('YYYY-MM-DDThh:mm:ss');
             var toDate = __WEBPACK_IMPORTED_MODULE_0_moment___default()(String(this.to)).format('YYYY-MM-DDThh:mm:ss');
 
-            axios
-            // EG988DSVV7PK3OIX
-            .get('https://rest.coinapi.io/v1/exchangerate/BTC/USD/history?period_id=' + periodNum + period + '&time_start=' + fromDate + '&time_end=' + toDate + '', { headers: headers }).then(function (response) {
+            axios.get('https://rest.coinapi.io/v1/exchangerate/BTC/USD/history?period_id=' + periodNum + period + '&time_start=' + fromDate + '&time_end=' + toDate + '', { headers: headers }).then(function (response) {
                 var data = response.data;
                 _this.chartData = [['Year', 'Price']];
                 if (data) {
@@ -34813,7 +34811,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_App_vue__ = __webpack_require__(7);
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_932dfcfa_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_App_vue__ = __webpack_require__(186);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_7e3319b2_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_App_vue__ = __webpack_require__(186);
 var normalizeComponent = __webpack_require__(157)
 /* script */
 
@@ -34830,7 +34828,7 @@ var __vue_scopeId__ = null
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
   __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_App_vue__["a" /* default */],
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_932dfcfa_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_App_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_7e3319b2_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_App_vue__["a" /* default */],
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,

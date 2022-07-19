@@ -57,7 +57,7 @@ export default {
     },
     data() {
         return {
-            msg: 'bitcoin Analyzer',
+            msg: 'bitcoin Price Analyzer',
             init: null,
             chartLoad: false,
             loaderImage: require('./assets/images/bitcoin.svg'),
@@ -150,7 +150,6 @@ export default {
             let toDate = moment(String(this.to)).format('YYYY-MM-DDThh:mm:ss');
 
             axios
-                // EG988DSVV7PK3OIX
                 .get('https://rest.coinapi.io/v1/exchangerate/BTC/USD/history?period_id='+periodNum+period+'&time_start=' + fromDate + '&time_end=' + toDate + '', { headers })
 
                 .then(response => {
