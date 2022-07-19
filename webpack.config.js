@@ -6,7 +6,7 @@ module.exports = {
   entry: './src/main.js',
   output: {
     path: path.resolve(__dirname, './docs'),
-    publicPath: '/',
+      publicPath: process.env.NODE_ENV === "production" ? "/BitcoinPriceApp/" : "/",
     filename: 'build.js'
   },
   module: {
