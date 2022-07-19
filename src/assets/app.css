@@ -34,12 +34,22 @@ h1 {
 }
 h1::before {
   content: '';
-  background: url(./images/bitcoin-btc-logo.svg) no-repeat;
+  background: url(images/bitcoin-btc-logo.svg) no-repeat;
   width: 40px;
   height: 40px;
   background-size: 100%;
   display: inline-block;
   background-position: center right;
+}
+@media screen and (max-width: 400px) {
+  h1 {
+    font-size: 2.1em;
+    margin-top: 0.5em;
+  }
+  h1::before {
+    width: 28px;
+    height: 28px;
+  }
 }
 .loader {
   display: block;
@@ -94,6 +104,7 @@ h1::before {
   }
   .range-container > div {
     width: 100%;
+    margin: 4px;
   }
   .range-container > div > span,
   .range-container > div .vdp-datepicker {
@@ -110,6 +121,11 @@ h1::before {
   color: #4c4c4c;
   display: block;
   text-align: center;
+}
+@media screen and (max-width: 400px) {
+  .max-range {
+    font-size: 11px;
+  }
 }
 .chart-wrapper {
   margin-top: 20px;

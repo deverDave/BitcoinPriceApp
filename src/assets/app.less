@@ -31,6 +31,14 @@ h1 {
         display            : inline-block;
         background-position: center right;
     }
+    @media screen and (max-width: 400px) {
+        font-size: 2.1em;
+        margin-top: 0.5em;
+        &::before {
+            width: 28px;
+            height: 28px;
+        }
+    }
 }
 
 .loader {
@@ -90,11 +98,12 @@ h1 {
         flex-wrap: wrap;
         justify-content: center;
         >div {
+            width: 100%;
+            margin: 4px;
             >span,
             .vdp-datepicker {
                 text-align: center;
             }            
-            width: 100%;
         }
     }
 }
@@ -112,6 +121,9 @@ h1 {
     color     : #4c4c4c;
     display   : block;
     text-align: center;
+    @media screen and (max-width: 400px) {
+        font-size: 11px;
+    }
 }
 
 .chart-wrapper {
