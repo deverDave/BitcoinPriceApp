@@ -5,7 +5,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin')
 module.exports = {
   entry: './src/main.js',
   output: {
-    path: path.resolve(__dirname, './dist'),
+    path: path.resolve(__dirname, './docs'),
     publicPath: '/',
     filename: 'build.js'
   },
@@ -103,7 +103,7 @@ if (process.env.NODE_ENV === 'production') {
     //   }
     // }),
     new HtmlWebpackPlugin({
-        filename: path.resolve(__dirname, './dist/index.html'), // the path where is the `index.html` generated.
+        filename: path.resolve(__dirname, './docs/index.html'), // the path where is the `index.html` generated.
         template: 'index.html',
         inject: true,
         minify: {
