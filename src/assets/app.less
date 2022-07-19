@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,400;1,700&display=swap');
 
 body {
-    min-height         : 100vh;
+    min-height     : 100vh;
     background     : rgb(236, 134, 9);
     background     : linear-gradient(0deg, rgba(236, 134, 9, 1) 0%, rgba(230, 179, 48, 1) 29%, rgba(242, 239, 106, 1) 100%);
     background-size: cover;
@@ -20,7 +20,7 @@ h1 {
     text-align : center;
     font-family: 'Ubuntu', sans-serif;
     font-style : italic;
-    margin-top: 1em;
+    margin-top : 1em;
 
     &::before {
         content            : '';
@@ -31,11 +31,14 @@ h1 {
         display            : inline-block;
         background-position: center right;
     }
-    @media screen and (max-width: 400px) {
-        font-size: 2.1em;
-        margin-top: 0.5em;
+
+    @media screen and (max-width: 600px) {
+        font-size  : 2.1em;
+        margin-top : 0.7em;
+        line-height: 1em;
+
         &::before {
-            width: 28px;
+            width : 28px;
             height: 28px;
         }
     }
@@ -94,16 +97,19 @@ h1 {
             margin-bottom: 3px;
         }
     }
+
     @media screen and (max-width: 500px) {
-        flex-wrap: wrap;
+        flex-wrap      : wrap;
         justify-content: center;
+
         >div {
-            width: 100%;
+            width : 100%;
             margin: 4px;
+
             >span,
             .vdp-datepicker {
                 text-align: center;
-            }            
+            }
         }
     }
 }
@@ -121,6 +127,7 @@ h1 {
     color     : #4c4c4c;
     display   : block;
     text-align: center;
+
     @media screen and (max-width: 400px) {
         font-size: 11px;
     }
@@ -131,7 +138,7 @@ h1 {
     display        : flex;
     justify-content: center;
 
-    >div >div {
+    >div>div {
         padding: 5px;
         border : 5px solid #fff;
     }

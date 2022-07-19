@@ -6778,6 +6778,8 @@ process.umask = function() { return 0; };
 //
 //
 //
+//
+//
 
 
 
@@ -6875,11 +6877,9 @@ var axios = __webpack_require__(162).default;
                 period = "DAY";
             }
 
-            // this.init = true;
-            //DD47492B-9C0A-4B8E-B13C-E832406CE5EF // <-- My Account
+            // DD47492B-9C0A-4B8E-B13C-E832406CE5EF // <-- My Account
             // E3A68CAE-701C-4EC7-8660-E5F011403F1E //<--TEMP
             // 440EEB85-CD58-46FA-B1B3-37E7DA746015 <--TEMP2
-            // 654E7564-BF70-4131-AD29-D254478D95A7
             var headers = { 'X-CoinAPI-Key': 'DD47492B-9C0A-4B8E-B13C-E832406CE5EF' };
 
             var fromDate = __WEBPACK_IMPORTED_MODULE_0_moment___default()(String(this.from)).format('YYYY-MM-DDThh:mm:ss');
@@ -6908,6 +6908,9 @@ var axios = __webpack_require__(162).default;
                 window.dispatchEvent(new Event('resize'));
             });
         },
+
+
+        // UPDATE THE DISABLED DATES ON THE 'END' RANGE FILTER
         updateDDT: function updateDDT(selected) {
             var daysMax = this.addDays(selected, 200);
             var dateToday = new Date();
@@ -6916,11 +6919,17 @@ var axios = __webpack_require__(162).default;
             this.disabledDatesTo.to = selected;
             this.to = this.disabledDatesTo.from;
         },
+
+
+        // HELPER FUNCTION FOR ADDING A GIVEN NUMBER OF DAYS TO A GIVEN DATE
         addDays: function addDays(date, days) {
             var result = new Date(date);
             result.setDate(result.getDate() + days);
             return result;
         },
+
+
+        // RESIZE THE CHART BASED ON WINDOW SIZE
         getDimensions: function getDimensions() {
             var currentWidth = document.documentElement.clientWidth;
             var currentHeight = document.documentElement.clientHeight;
@@ -34811,7 +34820,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_App_vue__ = __webpack_require__(7);
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_7e3319b2_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_App_vue__ = __webpack_require__(186);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_324b01ae_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_App_vue__ = __webpack_require__(186);
 var normalizeComponent = __webpack_require__(157)
 /* script */
 
@@ -34828,7 +34837,7 @@ var __vue_scopeId__ = null
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
   __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_App_vue__["a" /* default */],
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_7e3319b2_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_App_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_324b01ae_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_App_vue__["a" /* default */],
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
@@ -41050,7 +41059,7 @@ module.exports = __webpack_require__.p + "bitcoin.svg?142aef75695420d9d20e1dad74
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{attrs:{"id":"app"}},[_c('div',{staticClass:"app-inner"},[_c('h1',[_vm._v(_vm._s(_vm.msg))]),_vm._v(" "),(!_vm.init)?_c('div',{staticClass:"loader"},[_c('img',{attrs:{"src":_vm.loaderImage,"alt":"bitcoin"}})]):_vm._e(),_vm._v(" "),_c('transition',{attrs:{"name":"fade"}},[(_vm.init)?_c('div',{staticClass:"data"},[(!_vm.errored)?_c('div',{staticClass:"range-container"},[_c('div',[_c('span',[_vm._v("Start Date:")]),_vm._v(" "),_c('datepicker',{attrs:{"disabled-dates":_vm.disabledDatesFrom},on:{"change":_vm.updateChart,"input":function($event){return _vm.updateDDT(_vm.from)}},model:{value:(_vm.from),callback:function ($$v) {_vm.from=$$v},expression:"from"}})],1),_vm._v(" "),_c('div',[_c('span',[_vm._v("End Date:")]),_vm._v(" "),_c('datepicker',{attrs:{"disabled-dates":_vm.disabledDatesTo},on:{"change":_vm.updateChart},model:{value:(_vm.to),callback:function ($$v) {_vm.to=$$v},expression:"to"}})],1)]):_vm._e(),_vm._v(" "),(!_vm.errored)?_c('span',{staticClass:"max-range"},[_vm._v("(Max Date Range: 200 Days)")]):_vm._e(),_vm._v(" "),(_vm.chartLoad)?_c('div',{staticClass:"loader loader-chart",staticStyle:{"position":"absolute"}},[_c('img',{attrs:{"src":_vm.loaderImage,"alt":"bitcoin"}})]):_vm._e(),_vm._v(" "),(!_vm.errored)?_c('div',{staticClass:"chart-wrapper"},[_c('GChart',{attrs:{"type":"LineChart","data":_vm.chartData,"options":_vm.chartOptions,"resizeDebounce":500}})],1):_vm._e()]):_vm._e()]),_vm._v(" "),_c('transition',{attrs:{"name":"fade"}},[(_vm.errored)?_c('div',[_c('p',{staticClass:"error-message"},[_c('strong',[_vm._v("Error:")]),_vm._v(" Sorry, there was a problem retrieving this information, please contact an administrator.")])]):_vm._e()])],1)])}
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{attrs:{"id":"app"}},[_c('div',{staticClass:"app-inner"},[_c('h1',[_vm._v(_vm._s(_vm.msg))]),_vm._v(" "),(!_vm.init)?_c('div',{staticClass:"loader"},[_c('img',{attrs:{"src":_vm.loaderImage,"alt":"bitcoin"}})]):_vm._e(),_vm._v(" "),_c('transition',{attrs:{"name":"fade"}},[(_vm.init)?_c('div',{staticClass:"data"},[(!_vm.errored)?_c('div',{staticClass:"range-container"},[_c('div',[_c('span',[_vm._v("Start Date:")]),_vm._v(" "),_c('datepicker',{attrs:{"disabled-dates":_vm.disabledDatesFrom},on:{"change":_vm.updateChart,"input":function($event){return _vm.updateDDT(_vm.from)}},model:{value:(_vm.from),callback:function ($$v) {_vm.from=$$v},expression:"from"}})],1),_vm._v(" "),_c('div',[_c('span',[_vm._v("End Date:")]),_vm._v(" "),_c('datepicker',{attrs:{"disabled-dates":_vm.disabledDatesTo},on:{"change":_vm.updateChart},model:{value:(_vm.to),callback:function ($$v) {_vm.to=$$v},expression:"to"}})],1)]):_vm._e(),_vm._v(" "),(!_vm.errored)?_c('span',{staticClass:"max-range"},[_vm._v("(Max Date Range: 200 Days)")]):_vm._e(),_vm._v(" "),(!_vm.errored)?_c('div',{staticClass:"chart-wrapper"},[_c('GChart',{attrs:{"type":"LineChart","data":_vm.chartData,"options":_vm.chartOptions,"resizeDebounce":500}})],1):_vm._e()]):_vm._e()]),_vm._v(" "),_c('transition',{attrs:{"name":"fade"}},[(_vm.errored)?_c('div',[_c('p',{staticClass:"error-message"},[_c('strong',[_vm._v("Error:")]),_vm._v(" Sorry, there was a problem retrieving this information, please contact an administrator.")])]):_vm._e()])],1)])}
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);
@@ -41078,7 +41087,7 @@ exports = module.exports = __webpack_require__(190)(false);
 
 
 // module
-exports.push([module.i, "@font-face{font-family:Ubuntu;font-style:italic;font-weight:700;font-display:swap;src:url(https://fonts.gstatic.com/s/ubuntu/v20/4iCp6KVjbNBYlgoKejZPsmyI.ttf) format(\"truetype\")}@font-face{font-family:Ubuntu;font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/ubuntu/v20/4iCs6KVjbNBYlgo6eA.ttf) format(\"truetype\")}body{min-height:100vh;background:#ec8609;background:linear-gradient(0deg,#ec8609,#e6b330 29%,#f2ef6a);background-size:cover;font-family:Ubuntu,sans-serif}.app-inner{max-width:1200px;margin:0 auto}h1{color:#4c4c4c;font-size:3em;font-weight:700;text-align:center;font-family:Ubuntu,sans-serif;font-style:italic;margin-top:1em}h1:before{content:\"\";background:url(" + escape(__webpack_require__(191)) + ") no-repeat;width:40px;height:40px;background-size:100%;display:inline-block;background-position:100%}@media screen and (max-width:400px){h1{font-size:2.1em;margin-top:.5em}h1:before{width:28px;height:28px}}.loader{display:block;margin:0 auto;animation:mirrorflip 2s 0s linear infinite;width:150px}.loader-chart{display:block;margin-top:150px}@keyframes mirrorflip{0%{transform:scale(1);-webkit-transform:scale(1);-moz-transform:scale(1);-o-transform:scale(1);-ms-transform:scale(1)}50%{transform:scaleX(-1);-webkit-transform:scaleX(-1);-moz-transform:scaleX(-1);-o-transform:scaleX(-1);-ms-transform:scaleX(-1)}to{transform:scale(1);-webkit-transform:scale(1);-moz-transform:scale(1);-o-transform:scale(1);-ms-transform:scale(1)}}.range-container{display:flex;justify-content:center}.range-container>div{margin:8px}.range-container>div>span{color:#4c4c4c;font-weight:700;display:block;margin-bottom:3px}@media screen and (max-width:500px){.range-container{flex-wrap:wrap;justify-content:center}.range-container>div{width:100%;margin:4px}.range-container>div .vdp-datepicker,.range-container>div>span{text-align:center}}.vdp-datepicker input[type=text]{padding:8px;border-radius:8px;border:none;font-size:16px}.max-range{color:#4c4c4c;display:block;text-align:center}@media screen and (max-width:400px){.max-range{font-size:11px}}.chart-wrapper{margin-top:20px;display:flex;justify-content:center}.chart-wrapper>div>div{padding:5px;border:5px solid #fff}.error-message{background:#eb8c0e;color:#fff;text-align:center;display:table;margin:200px auto;padding:10px 30px;border-radius:8px}.fade-enter-active{transition:opacity .5s}.fade-enter{opacity:0}", ""]);
+exports.push([module.i, "@font-face{font-family:Ubuntu;font-style:italic;font-weight:700;font-display:swap;src:url(https://fonts.gstatic.com/s/ubuntu/v20/4iCp6KVjbNBYlgoKejZPsmyI.ttf) format(\"truetype\")}@font-face{font-family:Ubuntu;font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/ubuntu/v20/4iCs6KVjbNBYlgo6eA.ttf) format(\"truetype\")}body{min-height:100vh;background:#ec8609;background:linear-gradient(0deg,#ec8609,#e6b330 29%,#f2ef6a);background-size:cover;font-family:Ubuntu,sans-serif}.app-inner{max-width:1200px;margin:0 auto}h1{color:#4c4c4c;font-size:3em;font-weight:700;text-align:center;font-family:Ubuntu,sans-serif;font-style:italic;margin-top:1em}h1:before{content:\"\";background:url(" + escape(__webpack_require__(191)) + ") no-repeat;width:40px;height:40px;background-size:100%;display:inline-block;background-position:100%}@media screen and (max-width:600px){h1{font-size:2.1em;margin-top:.7em;line-height:1em}h1:before{width:28px;height:28px}}.loader{display:block;margin:0 auto;animation:mirrorflip 2s 0s linear infinite;width:150px}.loader-chart{display:block;margin-top:150px}@keyframes mirrorflip{0%{transform:scale(1);-webkit-transform:scale(1);-moz-transform:scale(1);-o-transform:scale(1);-ms-transform:scale(1)}50%{transform:scaleX(-1);-webkit-transform:scaleX(-1);-moz-transform:scaleX(-1);-o-transform:scaleX(-1);-ms-transform:scaleX(-1)}to{transform:scale(1);-webkit-transform:scale(1);-moz-transform:scale(1);-o-transform:scale(1);-ms-transform:scale(1)}}.range-container{display:flex;justify-content:center}.range-container>div{margin:8px}.range-container>div>span{color:#4c4c4c;font-weight:700;display:block;margin-bottom:3px}@media screen and (max-width:500px){.range-container{flex-wrap:wrap;justify-content:center}.range-container>div{width:100%;margin:4px}.range-container>div .vdp-datepicker,.range-container>div>span{text-align:center}}.vdp-datepicker input[type=text]{padding:8px;border-radius:8px;border:none;font-size:16px}.max-range{color:#4c4c4c;display:block;text-align:center}@media screen and (max-width:400px){.max-range{font-size:11px}}.chart-wrapper{margin-top:20px;display:flex;justify-content:center}.chart-wrapper>div>div{padding:5px;border:5px solid #fff}.error-message{background:#eb8c0e;color:#fff;text-align:center;display:table;margin:200px auto;padding:10px 30px;border-radius:8px}.fade-enter-active{transition:opacity .5s}.fade-enter{opacity:0}", ""]);
 
 // exports
 

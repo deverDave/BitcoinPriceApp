@@ -8,6 +8,8 @@
 
             <transition name="fade">
                 <div class="data" v-if="init">
+
+                    <!-- DATE RANGE FILTER -->
                     <div class="range-container" v-if="!errored">
                         <div>
                             <span>Start Date:</span>
@@ -24,20 +26,20 @@
 
                     <span class="max-range" v-if="!errored">(Max Date Range: 200 Days)</span>
 
-                    <div style="position: absolute;" class="loader loader-chart" v-if="chartLoad">
-                        <img :src="loaderImage" alt="bitcoin">
-                    </div>
                     <div class="chart-wrapper" v-if="!errored">
-                        <!-- CHART -->
+                        <!-- CHART ELEMENT -->
                         <GChart type="LineChart" :data="chartData" :options="chartOptions" :resizeDebounce="500" />
                     </div>
                 </div>
             </transition>
+
+            <!-- ERROR MESSGE BLOCK -->
             <transition name="fade">
                 <div v-if="errored">
                     <p class="error-message"><strong>Error:</strong> Sorry, there was a problem retrieving this information, please contact an administrator.</p>
                 </div>
             </transition>
+
         </div>
     </div>
 </template>
@@ -124,8 +126,7 @@ export default {
             let span = (this.to - this.from);
 
             this.chartLoad = true;
-            this.errored = false;
-           
+            this.errored = false;           
             
             if (span > twentyFourHours*2) {
                 period = "DAY";
@@ -139,11 +140,9 @@ export default {
                 period = "DAY";             
             } 
 
-            // this.init = true;
-            //DD47492B-9C0A-4B8E-B13C-E832406CE5EF // <-- My Account
+            // DD47492B-9C0A-4B8E-B13C-E832406CE5EF // <-- My Account
             // E3A68CAE-701C-4EC7-8660-E5F011403F1E //<--TEMP
             // 440EEB85-CD58-46FA-B1B3-37E7DA746015 <--TEMP2
-            // 654E7564-BF70-4131-AD29-D254478D95A7
             const headers = { 'X-CoinAPI-Key': 'DD47492B-9C0A-4B8E-B13C-E832406CE5EF' }; 
 
             let fromDate = moment(String(this.from)).format('YYYY-MM-DDThh:mm:ss');
@@ -177,6 +176,8 @@ export default {
                     window.dispatchEvent(new Event('resize'));
                 })
         },
+
+        // UPDATE THE DISABLED DATES ON THE 'END' RANGE FILTER
         updateDDT(selected) {
             var daysMax = this.addDays(selected, 200);
             var dateToday = new Date();
@@ -185,11 +186,15 @@ export default {
             this.disabledDatesTo.to = selected;
             this.to = this.disabledDatesTo.from;
         },
+
+        // HELPER FUNCTION FOR ADDING A GIVEN NUMBER OF DAYS TO A GIVEN DATE
         addDays(date, days) {
             var result = new Date(date);
             result.setDate(result.getDate() + days);
             return result;
         },
+        
+        // RESIZE THE CHART BASED ON WINDOW SIZE
         getDimensions() {
             let currentWidth = document.documentElement.clientWidth;
             let currentHeight = document.documentElement.clientHeight;
