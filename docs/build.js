@@ -6880,7 +6880,7 @@ var axios = __webpack_require__(162).default;
             // DD47492B-9C0A-4B8E-B13C-E832406CE5EF // <-- My Account
             // E3A68CAE-701C-4EC7-8660-E5F011403F1E //<--TEMP
             // 440EEB85-CD58-46FA-B1B3-37E7DA746015 <--TEMP2
-            var headers = { 'X-CoinAPI-Key': 'DD47492B-9C0A-4B8E-B13C-E832406CE5EF' };
+            var headers = { 'X-CoinAPI-Key': 'CA5035BD-2015-4629-B03C-5B367F454C03' };
 
             var fromDate = __WEBPACK_IMPORTED_MODULE_0_moment___default()(String(this.from)).format('YYYY-MM-DDThh:mm:ss');
             var toDate = __WEBPACK_IMPORTED_MODULE_0_moment___default()(String(this.to)).format('YYYY-MM-DDThh:mm:ss');
@@ -34820,7 +34820,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_App_vue__ = __webpack_require__(7);
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_324b01ae_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_App_vue__ = __webpack_require__(186);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_2f83f99c_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_App_vue__ = __webpack_require__(186);
 var normalizeComponent = __webpack_require__(157)
 /* script */
 
@@ -34837,7 +34837,7 @@ var __vue_scopeId__ = null
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
   __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_App_vue__["a" /* default */],
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_324b01ae_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_App_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_2f83f99c_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_App_vue__["a" /* default */],
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
