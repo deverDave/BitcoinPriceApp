@@ -143,7 +143,8 @@ export default {
             //DD47492B-9C0A-4B8E-B13C-E832406CE5EF // <-- My Account
             // E3A68CAE-701C-4EC7-8660-E5F011403F1E //<--TEMP
             // 440EEB85-CD58-46FA-B1B3-37E7DA746015 <--TEMP2
-            const headers = { 'X-CoinAPI-Key': '654E7564-BF70-4131-AD29-D254478D95A7' }; 
+            // 654E7564-BF70-4131-AD29-D254478D95A7
+            const headers = { 'X-CoinAPI-Key': 'DD47492B-9C0A-4B8E-B13C-E832406CE5EF' }; 
 
             let fromDate = moment(String(this.from)).format('YYYY-MM-DDThh:mm:ss');
             let toDate = moment(String(this.to)).format('YYYY-MM-DDThh:mm:ss');
