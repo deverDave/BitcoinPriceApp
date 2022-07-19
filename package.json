@@ -1,0 +1,44 @@
+{
+  "name": "bitcoinpriceapp",
+  "description": "A Vue.js project",
+  "version": "1.0.0",
+  "author": "David Jeppson davejepps@gmail.com",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
+    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
+  },
+  "dependencies": {
+    "apexcharts": "^3.35.3",
+    "axios": "^0.27.2",
+    "chart.js": "^3.8.0",
+    "dayjs": "^1.11.3",
+    "moment": "^2.29.4",
+    "vue": "^2.5.11",
+    "vue-chartkick": "^1.1.0",
+    "vue-google-charts": "^1.1.0",
+    "vuejs-datepicker": "^1.6.2"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ],
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-stage-3": "^6.24.1",
+    "cross-env": "^5.0.5",
+    "css-loader": "^0.28.7",
+    "file-loader": "^1.1.4",
+    "html-webpack-plugin": "^3.2.0",
+    "node-sass": "^4.5.3",
+    "sass-loader": "^6.0.6",
+    "vue-loader": "^13.0.5",
+    "vue-template-compiler": "^2.4.4",
+    "webpack": "^3.6.0",
+    "webpack-dev-server": "^2.9.1"
+  }
+}
