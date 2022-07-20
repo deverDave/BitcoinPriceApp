@@ -25,7 +25,9 @@
                     </div>
 
                     <span class="max-range" v-if="!errored">(Max Date Range: 200 Days)</span>
-
+                    <div class="loader loader-chart" v-if="chartLoad">
+                        <img src="/src/assets/images/bitcoin.svg" alt="bitcoin">
+                    </div>
                     <div class="chart-wrapper" v-if="!errored">
                         <!-- CHART ELEMENT -->
                         <GChart type="LineChart" :data="chartData" :options="chartOptions" :resizeDebounce="500" />
@@ -36,7 +38,8 @@
             <!-- ERROR MESSGE BLOCK -->
             <transition name="fade">
                 <div v-if="errored">
-                    <p class="error-message"><strong>Error:</strong> Sorry, there was a problem retrieving this information, please contact an administrator.</p>
+                    <p class="error-message"><strong>Error:</strong> Sorry, there was a problem retrieving this
+                        information, please contact an administrator.</p>
                 </div>
             </transition>
 
@@ -61,7 +64,7 @@ export default {
         return {
             msg: 'bitcoin Price Analyzer',
             init: null,
-            chartLoad: false,
+            chartLoad: true,
             loaderImage: require('./assets/images/bitcoin.svg'),
             width: document.documentElement.clientWidth,
             height: document.documentElement.clientHeight,
@@ -69,7 +72,7 @@ export default {
             to: new Date(),
             disabledDatesFrom: {
                 from: moment().subtract(1, 'days').toDate(),
-                to: new Date('January 3, 2009'),                
+                to: new Date('July 10, 2010'),                
             },
             disabledDatesTo: {
                 from: new Date(),
@@ -77,7 +80,7 @@ export default {
             },
             chartData: [['Year', 'Price']],
             chartOptions: {
-                title: 'Bitcoin Value Over Time',
+                title: 'Bitcoin Value Over Time - Hourly Increment',
                 curveType: 'function',
                 legend: { position: 'bottom' },
                 width: 1200,
@@ -115,11 +118,11 @@ export default {
         }
     },
     methods: {
-        updateChart() {
-            
+        // MAKE THE API CALL TO GET HISTORICAL DATA
+        updateChart() {            
             const twentyFourHours = 1000 * 60 * 60 * 24 + 2;
             const oneWeek = 1000 * 60 * 60 * 24 * 7;
-            const oneMonth = oneWeek * 4;
+            const threeMonth = oneWeek * 12;
             
             let periodNum = 1;
             let period = 'HRS';
@@ -127,23 +130,24 @@ export default {
 
             this.chartLoad = true;
             this.errored = false;           
-            
+            this.chartOptions.title = 'Bitcoin Value Over Time - Hourly Increment';
+
             if (span > twentyFourHours*2) {
                 period = "DAY";
+                this.chartOptions.title = 'Bitcoin Value Over Time - Daily Increment';
             }  
             if (span > oneWeek) {
                 periodNum = 1;
                 period = "DAY";
+                this.chartOptions.title = 'Bitcoin Value Over Time - Daily Increment';
             }
-            if (span > oneMonth) {
+            if (span > threeMonth) {
                 periodNum = 10;   
                 period = "DAY";             
+                this.chartOptions.title = 'Bitcoin Value Over Time - 10 Day Increment'
             } 
 
-            // DD47492B-9C0A-4B8E-B13C-E832406CE5EF // <-- My Account
-            // E3A68CAE-701C-4EC7-8660-E5F011403F1E //<--TEMP
-            // 440EEB85-CD58-46FA-B1B3-37E7DA746015 <--TEMP2
-            const headers = { 'X-CoinAPI-Key': 'CA5035BD-2015-4629-B03C-5B367F454C03' }; 
+            const headers = { 'X-CoinAPI-Key': 'FDB358F9-0671-4F60-83CD-D06ED9B3CB7C' }; 
 
             let fromDate = moment(String(this.from)).format('YYYY-MM-DDThh:mm:ss');
             let toDate = moment(String(this.to)).format('YYYY-MM-DDThh:mm:ss');

@@ -60,7 +60,23 @@ h1::before {
 }
 .loader-chart {
   display: block;
-  margin-top: 150px;
+  position: absolute;
+  z-index: 1;
+  top: 30px;
+  right: 40px;
+  width: 50px;
+}
+@media screen and (max-width: 700px) {
+  .loader-chart {
+    top: 72px;
+    right: 4px;
+    width: 30px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .loader-chart {
+    top: 128px;
+  }
 }
 @keyframes mirrorflip {
   0% {
@@ -84,6 +100,9 @@ h1::before {
     -o-transform: scale(1, 1);
     -ms-transform: scale(1, 1);
   }
+}
+.data {
+  position: relative;
 }
 .range-container {
   display: flex;

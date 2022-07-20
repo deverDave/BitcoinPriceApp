@@ -6780,6 +6780,9 @@ process.umask = function() { return 0; };
 //
 //
 //
+//
+//
+//
 
 
 
@@ -6797,7 +6800,7 @@ var axios = __webpack_require__(162).default;
         return {
             msg: 'bitcoin Price Analyzer',
             init: null,
-            chartLoad: false,
+            chartLoad: true,
             loaderImage: __webpack_require__(185),
             width: document.documentElement.clientWidth,
             height: document.documentElement.clientHeight,
@@ -6805,7 +6808,7 @@ var axios = __webpack_require__(162).default;
             to: new Date(),
             disabledDatesFrom: {
                 from: __WEBPACK_IMPORTED_MODULE_0_moment___default()().subtract(1, 'days').toDate(),
-                to: new Date('January 3, 2009')
+                to: new Date('July 10, 2010')
             },
             disabledDatesTo: {
                 from: new Date(),
@@ -6813,7 +6816,7 @@ var axios = __webpack_require__(162).default;
             },
             chartData: [['Year', 'Price']],
             chartOptions: {
-                title: 'Bitcoin Value Over Time',
+                title: 'Bitcoin Value Over Time - Hourly Increment',
                 curveType: 'function',
                 legend: { position: 'bottom' },
                 width: 1200,
@@ -6851,12 +6854,13 @@ var axios = __webpack_require__(162).default;
         }
     },
     methods: {
+        // MAKE THE API CALL TO GET HISTORICAL DATA
         updateChart: function updateChart() {
             var _this = this;
 
             var twentyFourHours = 1000 * 60 * 60 * 24 + 2;
             var oneWeek = 1000 * 60 * 60 * 24 * 7;
-            var oneMonth = oneWeek * 4;
+            var threeMonth = oneWeek * 12;
 
             var periodNum = 1;
             var period = 'HRS';
@@ -6864,23 +6868,24 @@ var axios = __webpack_require__(162).default;
 
             this.chartLoad = true;
             this.errored = false;
+            this.chartOptions.title = 'Bitcoin Value Over Time - Hourly Increment';
 
             if (span > twentyFourHours * 2) {
                 period = "DAY";
+                this.chartOptions.title = 'Bitcoin Value Over Time - Daily Increment';
             }
             if (span > oneWeek) {
                 periodNum = 1;
                 period = "DAY";
+                this.chartOptions.title = 'Bitcoin Value Over Time - Daily Increment';
             }
-            if (span > oneMonth) {
+            if (span > threeMonth) {
                 periodNum = 10;
                 period = "DAY";
+                this.chartOptions.title = 'Bitcoin Value Over Time - 10 Day Increment';
             }
 
-            // DD47492B-9C0A-4B8E-B13C-E832406CE5EF // <-- My Account
-            // E3A68CAE-701C-4EC7-8660-E5F011403F1E //<--TEMP
-            // 440EEB85-CD58-46FA-B1B3-37E7DA746015 <--TEMP2
-            var headers = { 'X-CoinAPI-Key': 'CA5035BD-2015-4629-B03C-5B367F454C03' };
+            var headers = { 'X-CoinAPI-Key': 'FDB358F9-0671-4F60-83CD-D06ED9B3CB7C' };
 
             var fromDate = __WEBPACK_IMPORTED_MODULE_0_moment___default()(String(this.from)).format('YYYY-MM-DDThh:mm:ss');
             var toDate = __WEBPACK_IMPORTED_MODULE_0_moment___default()(String(this.to)).format('YYYY-MM-DDThh:mm:ss');
@@ -34820,7 +34825,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_App_vue__ = __webpack_require__(7);
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_2f83f99c_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_App_vue__ = __webpack_require__(186);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_5e10c7ef_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_App_vue__ = __webpack_require__(186);
 var normalizeComponent = __webpack_require__(157)
 /* script */
 
@@ -34837,7 +34842,7 @@ var __vue_scopeId__ = null
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
   __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_App_vue__["a" /* default */],
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_2f83f99c_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_App_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_5e10c7ef_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_App_vue__["a" /* default */],
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
@@ -41059,7 +41064,7 @@ module.exports = __webpack_require__.p + "bitcoin.svg?142aef75695420d9d20e1dad74
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{attrs:{"id":"app"}},[_c('div',{staticClass:"app-inner"},[_c('h1',[_vm._v(_vm._s(_vm.msg))]),_vm._v(" "),(!_vm.init)?_c('div',{staticClass:"loader"},[_c('img',{attrs:{"src":_vm.loaderImage,"alt":"bitcoin"}})]):_vm._e(),_vm._v(" "),_c('transition',{attrs:{"name":"fade"}},[(_vm.init)?_c('div',{staticClass:"data"},[(!_vm.errored)?_c('div',{staticClass:"range-container"},[_c('div',[_c('span',[_vm._v("Start Date:")]),_vm._v(" "),_c('datepicker',{attrs:{"disabled-dates":_vm.disabledDatesFrom},on:{"change":_vm.updateChart,"input":function($event){return _vm.updateDDT(_vm.from)}},model:{value:(_vm.from),callback:function ($$v) {_vm.from=$$v},expression:"from"}})],1),_vm._v(" "),_c('div',[_c('span',[_vm._v("End Date:")]),_vm._v(" "),_c('datepicker',{attrs:{"disabled-dates":_vm.disabledDatesTo},on:{"change":_vm.updateChart},model:{value:(_vm.to),callback:function ($$v) {_vm.to=$$v},expression:"to"}})],1)]):_vm._e(),_vm._v(" "),(!_vm.errored)?_c('span',{staticClass:"max-range"},[_vm._v("(Max Date Range: 200 Days)")]):_vm._e(),_vm._v(" "),(!_vm.errored)?_c('div',{staticClass:"chart-wrapper"},[_c('GChart',{attrs:{"type":"LineChart","data":_vm.chartData,"options":_vm.chartOptions,"resizeDebounce":500}})],1):_vm._e()]):_vm._e()]),_vm._v(" "),_c('transition',{attrs:{"name":"fade"}},[(_vm.errored)?_c('div',[_c('p',{staticClass:"error-message"},[_c('strong',[_vm._v("Error:")]),_vm._v(" Sorry, there was a problem retrieving this information, please contact an administrator.")])]):_vm._e()])],1)])}
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{attrs:{"id":"app"}},[_c('div',{staticClass:"app-inner"},[_c('h1',[_vm._v(_vm._s(_vm.msg))]),_vm._v(" "),(!_vm.init)?_c('div',{staticClass:"loader"},[_c('img',{attrs:{"src":_vm.loaderImage,"alt":"bitcoin"}})]):_vm._e(),_vm._v(" "),_c('transition',{attrs:{"name":"fade"}},[(_vm.init)?_c('div',{staticClass:"data"},[(!_vm.errored)?_c('div',{staticClass:"range-container"},[_c('div',[_c('span',[_vm._v("Start Date:")]),_vm._v(" "),_c('datepicker',{attrs:{"disabled-dates":_vm.disabledDatesFrom},on:{"change":_vm.updateChart,"input":function($event){return _vm.updateDDT(_vm.from)}},model:{value:(_vm.from),callback:function ($$v) {_vm.from=$$v},expression:"from"}})],1),_vm._v(" "),_c('div',[_c('span',[_vm._v("End Date:")]),_vm._v(" "),_c('datepicker',{attrs:{"disabled-dates":_vm.disabledDatesTo},on:{"change":_vm.updateChart},model:{value:(_vm.to),callback:function ($$v) {_vm.to=$$v},expression:"to"}})],1)]):_vm._e(),_vm._v(" "),(!_vm.errored)?_c('span',{staticClass:"max-range"},[_vm._v("(Max Date Range: 200 Days)")]):_vm._e(),_vm._v(" "),(_vm.chartLoad)?_c('div',{staticClass:"loader loader-chart"},[_c('img',{attrs:{"src":"/src/assets/images/bitcoin.svg","alt":"bitcoin"}})]):_vm._e(),_vm._v(" "),(!_vm.errored)?_c('div',{staticClass:"chart-wrapper"},[_c('GChart',{attrs:{"type":"LineChart","data":_vm.chartData,"options":_vm.chartOptions,"resizeDebounce":500}})],1):_vm._e()]):_vm._e()]),_vm._v(" "),_c('transition',{attrs:{"name":"fade"}},[(_vm.errored)?_c('div',[_c('p',{staticClass:"error-message"},[_c('strong',[_vm._v("Error:")]),_vm._v(" Sorry, there was a problem retrieving this\n                    information, please contact an administrator.")])]):_vm._e()])],1)])}
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);
@@ -41087,7 +41092,7 @@ exports = module.exports = __webpack_require__(190)(false);
 
 
 // module
-exports.push([module.i, "@font-face{font-family:Ubuntu;font-style:italic;font-weight:700;font-display:swap;src:url(https://fonts.gstatic.com/s/ubuntu/v20/4iCp6KVjbNBYlgoKejZPsmyI.ttf) format(\"truetype\")}@font-face{font-family:Ubuntu;font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/ubuntu/v20/4iCs6KVjbNBYlgo6eA.ttf) format(\"truetype\")}body{min-height:100vh;background:#ec8609;background:linear-gradient(0deg,#ec8609,#e6b330 29%,#f2ef6a);background-size:cover;font-family:Ubuntu,sans-serif}.app-inner{max-width:1200px;margin:0 auto}h1{color:#4c4c4c;font-size:3em;font-weight:700;text-align:center;font-family:Ubuntu,sans-serif;font-style:italic;margin-top:1em}h1:before{content:\"\";background:url(" + escape(__webpack_require__(191)) + ") no-repeat;width:40px;height:40px;background-size:100%;display:inline-block;background-position:100%}@media screen and (max-width:600px){h1{font-size:2.1em;margin-top:.7em;line-height:1em}h1:before{width:28px;height:28px}}.loader{display:block;margin:0 auto;animation:mirrorflip 2s 0s linear infinite;width:150px}.loader-chart{display:block;margin-top:150px}@keyframes mirrorflip{0%{transform:scale(1);-webkit-transform:scale(1);-moz-transform:scale(1);-o-transform:scale(1);-ms-transform:scale(1)}50%{transform:scaleX(-1);-webkit-transform:scaleX(-1);-moz-transform:scaleX(-1);-o-transform:scaleX(-1);-ms-transform:scaleX(-1)}to{transform:scale(1);-webkit-transform:scale(1);-moz-transform:scale(1);-o-transform:scale(1);-ms-transform:scale(1)}}.range-container{display:flex;justify-content:center}.range-container>div{margin:8px}.range-container>div>span{color:#4c4c4c;font-weight:700;display:block;margin-bottom:3px}@media screen and (max-width:500px){.range-container{flex-wrap:wrap;justify-content:center}.range-container>div{width:100%;margin:4px}.range-container>div .vdp-datepicker,.range-container>div>span{text-align:center}}.vdp-datepicker input[type=text]{padding:8px;border-radius:8px;border:none;font-size:16px}.max-range{color:#4c4c4c;display:block;text-align:center}@media screen and (max-width:400px){.max-range{font-size:11px}}.chart-wrapper{margin-top:20px;display:flex;justify-content:center}.chart-wrapper>div>div{padding:5px;border:5px solid #fff}.error-message{background:#eb8c0e;color:#fff;text-align:center;display:table;margin:200px auto;padding:10px 30px;border-radius:8px}.fade-enter-active{transition:opacity .5s}.fade-enter{opacity:0}", ""]);
+exports.push([module.i, "@font-face{font-family:Ubuntu;font-style:italic;font-weight:700;font-display:swap;src:url(https://fonts.gstatic.com/s/ubuntu/v20/4iCp6KVjbNBYlgoKejZPsmyI.ttf) format(\"truetype\")}@font-face{font-family:Ubuntu;font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/ubuntu/v20/4iCs6KVjbNBYlgo6eA.ttf) format(\"truetype\")}body{min-height:100vh;background:#ec8609;background:linear-gradient(0deg,#ec8609,#e6b330 29%,#f2ef6a);background-size:cover;font-family:Ubuntu,sans-serif}.app-inner{max-width:1200px;margin:0 auto}h1{color:#4c4c4c;font-size:3em;font-weight:700;text-align:center;font-family:Ubuntu,sans-serif;font-style:italic;margin-top:1em}h1:before{content:\"\";background:url(" + escape(__webpack_require__(191)) + ") no-repeat;width:40px;height:40px;background-size:100%;display:inline-block;background-position:100%}@media screen and (max-width:600px){h1{font-size:2.1em;margin-top:.7em;line-height:1em}h1:before{width:28px;height:28px}}.loader{display:block;margin:0 auto;animation:mirrorflip 2s 0s linear infinite;width:150px}.loader-chart{display:block;position:absolute;z-index:1;top:30px;right:40px;width:50px}@media screen and (max-width:700px){.loader-chart{top:72px;right:4px;width:30px}}@media screen and (max-width:500px){.loader-chart{top:128px}}@keyframes mirrorflip{0%{transform:scale(1);-webkit-transform:scale(1);-moz-transform:scale(1);-o-transform:scale(1);-ms-transform:scale(1)}50%{transform:scaleX(-1);-webkit-transform:scaleX(-1);-moz-transform:scaleX(-1);-o-transform:scaleX(-1);-ms-transform:scaleX(-1)}to{transform:scale(1);-webkit-transform:scale(1);-moz-transform:scale(1);-o-transform:scale(1);-ms-transform:scale(1)}}.data{position:relative}.range-container{display:flex;justify-content:center}.range-container>div{margin:8px}.range-container>div>span{color:#4c4c4c;font-weight:700;display:block;margin-bottom:3px}@media screen and (max-width:500px){.range-container{flex-wrap:wrap;justify-content:center}.range-container>div{width:100%;margin:4px}.range-container>div .vdp-datepicker,.range-container>div>span{text-align:center}}.vdp-datepicker input[type=text]{padding:8px;border-radius:8px;border:none;font-size:16px}.max-range{color:#4c4c4c;display:block;text-align:center}@media screen and (max-width:400px){.max-range{font-size:11px}}.chart-wrapper{margin-top:20px;display:flex;justify-content:center}.chart-wrapper>div>div{padding:5px;border:5px solid #fff}.error-message{background:#eb8c0e;color:#fff;text-align:center;display:table;margin:200px auto;padding:10px 30px;border-radius:8px}.fade-enter-active{transition:opacity .5s}.fade-enter{opacity:0}", ""]);
 
 // exports
 

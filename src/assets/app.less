@@ -52,8 +52,21 @@ h1 {
     width    : 150px;
 
     &-chart {
-        display   : block;
-        margin-top: 150px;
+        display : block;
+        position: absolute;
+        z-index : 1;
+        top     : 30px;
+        right   : 40px;
+        width   : 50px;
+
+        @media screen and (max-width: 700px) {
+            top  : 72px;
+            right: 4px;
+            width: 30px;
+        }
+        @media screen and (max-width: 500px) {
+            top  : 128px;
+        }
     }
 }
 
@@ -81,6 +94,10 @@ h1 {
         -o-transform     : scale(1, 1);
         -ms-transform    : scale(1, 1);
     }
+}
+
+.data {
+    position: relative;
 }
 
 .range-container {
