@@ -13,8 +13,7 @@
                     <div class="range-container" v-if="!errored">
                         <div>
                             <span>Start Date:</span>
-                            <datepicker v-model="from" :disabled-dates="disabledDatesFrom"
-                                @input="updateDDT(from)">
+                            <datepicker v-model="from" :disabled-dates="disabledDatesFrom" @input="updateDDT(from)">
                             </datepicker>
                         </div>
                         <div>
@@ -26,7 +25,7 @@
 
                     <span class="max-range" v-if="!errored">(Max Date Range: 200 Days)</span>
                     <div class="loader loader-chart" v-if="chartLoad">
-                        <img src="/src/assets/images/bitcoin.svg" alt="bitcoin">
+                        <img :src="loaderImage" alt="bitcoin">
                     </div>
                     <div class="chart-wrapper" v-if="!errored">
                         <!-- CHART ELEMENT -->

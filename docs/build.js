@@ -6782,7 +6782,6 @@ process.umask = function() { return 0; };
 //
 //
 //
-//
 
 
 
@@ -34822,7 +34821,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_App_vue__ = __webpack_require__(7);
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_fc16b844_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_App_vue__ = __webpack_require__(186);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_6f0cdcf5_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_App_vue__ = __webpack_require__(186);
 var normalizeComponent = __webpack_require__(157)
 /* script */
 
@@ -34839,7 +34838,7 @@ var __vue_scopeId__ = null
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
   __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_App_vue__["a" /* default */],
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_fc16b844_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_App_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_6f0cdcf5_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_App_vue__["a" /* default */],
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
@@ -41061,7 +41060,7 @@ module.exports = __webpack_require__.p + "bitcoin.svg?142aef75695420d9d20e1dad74
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{attrs:{"id":"app"}},[_c('div',{staticClass:"app-inner"},[_c('h1',[_vm._v(_vm._s(_vm.msg))]),_vm._v(" "),(!_vm.init)?_c('div',{staticClass:"loader"},[_c('img',{attrs:{"src":_vm.loaderImage,"alt":"bitcoin"}})]):_vm._e(),_vm._v(" "),_c('transition',{attrs:{"name":"fade"}},[(_vm.init)?_c('div',{staticClass:"data"},[(!_vm.errored)?_c('div',{staticClass:"range-container"},[_c('div',[_c('span',[_vm._v("Start Date:")]),_vm._v(" "),_c('datepicker',{attrs:{"disabled-dates":_vm.disabledDatesFrom},on:{"input":function($event){return _vm.updateDDT(_vm.from)}},model:{value:(_vm.from),callback:function ($$v) {_vm.from=$$v},expression:"from"}})],1),_vm._v(" "),_c('div',[_c('span',[_vm._v("End Date:")]),_vm._v(" "),_c('datepicker',{attrs:{"disabled-dates":_vm.disabledDatesTo},model:{value:(_vm.to),callback:function ($$v) {_vm.to=$$v},expression:"to"}})],1)]):_vm._e(),_vm._v(" "),(!_vm.errored)?_c('span',{staticClass:"max-range"},[_vm._v("(Max Date Range: 200 Days)")]):_vm._e(),_vm._v(" "),(_vm.chartLoad)?_c('div',{staticClass:"loader loader-chart"},[_c('img',{attrs:{"src":"/src/assets/images/bitcoin.svg","alt":"bitcoin"}})]):_vm._e(),_vm._v(" "),(!_vm.errored)?_c('div',{staticClass:"chart-wrapper"},[_c('GChart',{attrs:{"type":"LineChart","data":_vm.chartData,"options":_vm.chartOptions,"resizeDebounce":500}})],1):_vm._e()]):_vm._e()]),_vm._v(" "),_c('transition',{attrs:{"name":"fade"}},[(_vm.errored)?_c('div',[_c('p',{staticClass:"error-message"},[_c('strong',[_vm._v("Error:")]),_vm._v(" Sorry, there was a problem retrieving this\n                    information, please contact an administrator.")])]):_vm._e()])],1)])}
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{attrs:{"id":"app"}},[_c('div',{staticClass:"app-inner"},[_c('h1',[_vm._v(_vm._s(_vm.msg))]),_vm._v(" "),(!_vm.init)?_c('div',{staticClass:"loader"},[_c('img',{attrs:{"src":_vm.loaderImage,"alt":"bitcoin"}})]):_vm._e(),_vm._v(" "),_c('transition',{attrs:{"name":"fade"}},[(_vm.init)?_c('div',{staticClass:"data"},[(!_vm.errored)?_c('div',{staticClass:"range-container"},[_c('div',[_c('span',[_vm._v("Start Date:")]),_vm._v(" "),_c('datepicker',{attrs:{"disabled-dates":_vm.disabledDatesFrom},on:{"input":function($event){return _vm.updateDDT(_vm.from)}},model:{value:(_vm.from),callback:function ($$v) {_vm.from=$$v},expression:"from"}})],1),_vm._v(" "),_c('div',[_c('span',[_vm._v("End Date:")]),_vm._v(" "),_c('datepicker',{attrs:{"disabled-dates":_vm.disabledDatesTo},model:{value:(_vm.to),callback:function ($$v) {_vm.to=$$v},expression:"to"}})],1)]):_vm._e(),_vm._v(" "),(!_vm.errored)?_c('span',{staticClass:"max-range"},[_vm._v("(Max Date Range: 200 Days)")]):_vm._e(),_vm._v(" "),(_vm.chartLoad)?_c('div',{staticClass:"loader loader-chart"},[_c('img',{attrs:{"src":_vm.loaderImage,"alt":"bitcoin"}})]):_vm._e(),_vm._v(" "),(!_vm.errored)?_c('div',{staticClass:"chart-wrapper"},[_c('GChart',{attrs:{"type":"LineChart","data":_vm.chartData,"options":_vm.chartOptions,"resizeDebounce":500}})],1):_vm._e()]):_vm._e()]),_vm._v(" "),_c('transition',{attrs:{"name":"fade"}},[(_vm.errored)?_c('div',[_c('p',{staticClass:"error-message"},[_c('strong',[_vm._v("Error:")]),_vm._v(" Sorry, there was a problem retrieving this\n                    information, please contact an administrator.")])]):_vm._e()])],1)])}
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);
