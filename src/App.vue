@@ -13,13 +13,13 @@
                     <div class="range-container" v-if="!errored">
                         <div>
                             <span>Start Date:</span>
-                            <datepicker v-model="from" :disabled-dates="disabledDatesFrom" @change="updateChart"
+                            <datepicker v-model="from" :disabled-dates="disabledDatesFrom"
                                 @input="updateDDT(from)">
                             </datepicker>
                         </div>
                         <div>
                             <span>End Date:</span>
-                            <datepicker v-model="to" :disabled-dates="disabledDatesTo" @change="updateChart">
+                            <datepicker v-model="to" :disabled-dates="disabledDatesTo">
                             </datepicker>
                         </div>
                     </div>
@@ -110,9 +110,6 @@ export default {
         window.addEventListener('resize', this.getDimensions)
     },
     watch: {
-        from() {
-            this.updateChart()
-        },
         to() {
             this.updateChart()
         }
@@ -147,7 +144,7 @@ export default {
                 this.chartOptions.title = 'Bitcoin Value Over Time - 10 Day Increment'
             } 
 
-            const headers = { 'X-CoinAPI-Key': 'FDB358F9-0671-4F60-83CD-D06ED9B3CB7C' }; 
+            const headers = { 'X-CoinAPI-Key': '9480ED57-239C-4C43-BCC5-1C932BA52252' }; 
 
             let fromDate = moment(String(this.from)).format('YYYY-MM-DDThh:mm:ss');
             let toDate = moment(String(this.to)).format('YYYY-MM-DDThh:mm:ss');
