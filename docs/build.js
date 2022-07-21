@@ -6870,11 +6870,6 @@ var axios = __webpack_require__(162).default;
                 period = "DAY";
                 this.chartOptions.title = 'Bitcoin Value Over Time - Daily Increment';
             }
-            if (span > oneWeek) {
-                periodNum = 1;
-                period = "DAY";
-                this.chartOptions.title = 'Bitcoin Value Over Time - Daily Increment';
-            }
             if (span > threeMonth) {
                 periodNum = 10;
                 period = "DAY";
@@ -6937,6 +6932,8 @@ var axios = __webpack_require__(162).default;
 
             if (currentWidth < 1200) {
                 this.chartOptions.width = currentWidth - 40;
+            } else {
+                this.chartOptions.width = 1200;
             }
             if (currentWidth < 500 || currentHeight < 850) {
                 this.chartOptions.height = 400;
@@ -34821,7 +34818,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_App_vue__ = __webpack_require__(7);
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_6f0cdcf5_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_App_vue__ = __webpack_require__(186);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_4d3ff8d2_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_App_vue__ = __webpack_require__(186);
 var normalizeComponent = __webpack_require__(157)
 /* script */
 
@@ -34838,7 +34835,7 @@ var __vue_scopeId__ = null
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
   __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_App_vue__["a" /* default */],
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_6f0cdcf5_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_App_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_4d3ff8d2_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_App_vue__["a" /* default */],
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,

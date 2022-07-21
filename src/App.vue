@@ -132,11 +132,6 @@ export default {
                 period = "DAY";
                 this.chartOptions.title = 'Bitcoin Value Over Time - Daily Increment';
             }  
-            if (span > oneWeek) {
-                periodNum = 1;
-                period = "DAY";
-                this.chartOptions.title = 'Bitcoin Value Over Time - Daily Increment';
-            }
             if (span > threeMonth) {
                 periodNum = 10;   
                 period = "DAY";             
@@ -201,6 +196,8 @@ export default {
 
             if (currentWidth < 1200) {
                 this.chartOptions.width = currentWidth - 40;
+            } else {
+                this.chartOptions.width = 1200;
             }
             if (currentWidth < 500 || currentHeight < 850) {
                 this.chartOptions.height = 400;
